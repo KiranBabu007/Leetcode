@@ -10,7 +10,6 @@ class Solution(object):
 
         m=len(nums)/3
         for i,key in count.items():
-            print(m,i,key)
             if key>m:
                 l.append(i)
         return l
