@@ -11,7 +11,7 @@ class Solution(object):
 
             while(left<right):
                 sum=nums[i]+nums[left]+nums[right]
-                if(nums[i]+nums[left]+nums[right]==0):
+                if(sum==0):
                     l.append([nums[i],nums[left],nums[right]])
                     left+=1
                     right-=1
