@@ -1,19 +1,18 @@
 class Solution(object):
     def trap(self, height):
-        
-        left=[]
-        right=[]
+        n=len(height)
+        left=[0]*n
+        right=[0]*n
         m=0
 
-        for i in range(len(height)):
+        for i in range(n):
             m=max(height[i],m)
-            left.append(m)
+            left[i]=m
         m=0
-        for i in range(len(height)-1,-1,-1):
+        for i in range(n-1,-1,-1):
             m=max(height[i],m)
-            right.append(m)
-        right.reverse() 
-        l=[min(left[i],right[i])-height[i] for i in range(len(height))]
+            right[i]=m
+        l=[min(left[i],right[i])-height[i] for i in range(n)]
 
         return sum(l)
 
