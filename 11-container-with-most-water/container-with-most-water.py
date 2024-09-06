@@ -8,7 +8,7 @@ class Solution(object):
         n=len(height)
         l,r,res=0,n-1,0
 
-        for i in range(n):
+        while(l<r):
             area=(r-l)*min(height[l],height[r])
             res=max(res,area)
 
