@@ -1,8 +1,7 @@
 class Solution(object):
     def maxSubArray(self, nums):
 
-        if not nums:
-            return
+        
         curr=0
         sum=nums[0]
         for i in nums:
