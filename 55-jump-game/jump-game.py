@@ -5,6 +5,8 @@ class Solution(object):
             if i>ans:
                 return False
             ans=max(ans,i+nums[i])
+            if ans>=len(nums)-1:
+                return True
         return True
             
             
