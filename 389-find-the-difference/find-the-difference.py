@@ -1,13 +1,6 @@
 class Solution:
     def findTheDifference(self, s: str, t: str) -> str:
-        l1=list(s)
-        l2=list(t)
-        print(l2)
-
-        for i in l2:
-            if i in l1:
-                l1.remove(i)
-            else:
+        for i in t:
+            if s.count(i) != t.count(i):
                 return i
-            
         
