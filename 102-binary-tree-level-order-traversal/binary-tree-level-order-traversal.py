@@ -16,7 +16,6 @@ class Solution:
             for _ in range(len(q)):
                 node = q.popleft()
                 l.append(node.val)
-            
                 if node.left:  
                     q.append(node.left)
                 if node.right:
