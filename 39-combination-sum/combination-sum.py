@@ -6,7 +6,7 @@ class Solution(object):
                 ans.append(list(st))
                 return
 
-            if i==len(arr) or t<0:
+            if i==len(arr):
                 return
             
             if arr[i]<=t:
