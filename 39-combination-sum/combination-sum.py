@@ -1,7 +1,5 @@
 class Solution(object):
-    def combinationSum(self, candidates, target):
-       
-        
+    def combinationSum(self, candidates, target):   
         def findcomb(i,arr,t,st,ans):
 
             if t==0:
@@ -17,10 +15,8 @@ class Solution(object):
                 st.pop()
             findcomb(i+1,arr,t,st,ans)
 
-        st=[]
         ans=[]
-
-        findcomb(0,candidates,target,st,ans)
+        findcomb(0,candidates,target,[],ans)
 
         return ans
 
