@@ -7,10 +7,8 @@ class Solution(object):
         
         while(len(str(num))>1):
             newnum=0
-            for i in str(num):
-                print(i)
-                newnum+=int(i)
-                print('sum:',newnum)
+            for i in str(num):        
+                newnum+=int(i)       
             num=newnum
         return num
         
