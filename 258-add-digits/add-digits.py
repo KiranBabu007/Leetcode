@@ -4,11 +4,14 @@ class Solution(object):
         :type num: int
         :rtype: int
         """
-        
-        while(len(str(num))>1):
-            newnum=0
-            for i in str(num):        
-                newnum+=int(i)       
-            num=newnum
-        return num
+        sum=0
+
+        while(num!=0):
+            sum+=num%10
+            num/=10
+            print(sum)
+            if num==0 and sum>9:
+                num=sum
+                sum=0
+        return sum
         
