@@ -5,8 +5,6 @@ class Solution(object):
         :rtype: bool
         """
 
-        for i in range(1,int(sqrt(num))+1):
-            if i*i==num:
-                return True
-        return False
-        
+        n=sqrt(num)
+
+        return int(n)==n
