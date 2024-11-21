@@ -5,6 +5,5 @@ class Solution(object):
         :rtype: bool
         """
 
-        n=sqrt(num)
-
-        return int(n)==n
+        n=int(sqrt(num))
+        return n*n == num
