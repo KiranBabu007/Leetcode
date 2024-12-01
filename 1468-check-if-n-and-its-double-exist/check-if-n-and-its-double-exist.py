@@ -4,10 +4,10 @@ class Solution(object):
         :type arr: List[int]
         :rtype: bool
         """
-        n=len(arr)
-        for i in range(n):
-            for j in range(n):
-                if arr[i]==arr[j]*2 and i!=j:
-                    return True
+        s=set()
+        for i in arr:
+            if i*2 in s or (i%2==0 and i/2 in s):
+                print(s,i)
+                return True
+            s.add(i)
         return False
-        
