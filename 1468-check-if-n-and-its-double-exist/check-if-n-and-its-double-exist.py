@@ -6,7 +6,7 @@ class Solution(object):
         """
         s=set()
         for i in arr:
-            if i*2 in s or (i%2==0 and i/2 in s):
+            if i*2 in s or (i%2==0 and i//2 in s):
                 print(s,i)
                 return True
             s.add(i)
