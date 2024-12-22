@@ -9,19 +9,19 @@ class Solution(object):
         for a,b in prerequisites:
             adjList[b].append(a)
         Visited=set()
+        
         def dfs(node):
             if node in Visited:
                 return False
             Visited.add(node)
+            
             for i in adjList[node]:
                 if(not dfs(i)): return False
-
-            Visited.remove(node)
+   
             adjList[node]=[]
+            Visited.remove(node)
             return True
             
-
-
         for i in range(numCourses):
             if not dfs(i): return False
         return True
