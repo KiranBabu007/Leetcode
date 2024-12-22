@@ -6,7 +6,6 @@ class Solution(object):
         """
         if not root:  
             return 0
-        c=0
         def dfs(node,c):
             if not node:
                 return float('inf')
