@@ -10,12 +10,15 @@ class Solution(object):
         :type root: Optional[TreeNode]
         :rtype: Optional[TreeNode]
         """
-        if not root:
-            return None
+        def swap(root):
+            if not root:
+                return
+            if not root.left and not root.right:
+                return      
+            swap(root.left)
+            swap(root.right)
+            root.left,root.right=root.right,root.left
             
-        root.left,root.right=root.right,root.left
-        self.invertTree(root.left)
-        self.invertTree(root.right)
-
+        swap(root)
         return root
         
