@@ -6,19 +6,15 @@
 #         self.right = right
 class Solution(object):
     def hasPathSum(self, root, targetSum):
-        sum=0
+        
         def dfs(node,s):
-            
             if not node:
                 return False
             s+=node.val
-            if s==targetSum and not node.left and not node.right:
-                return True     
-            l=dfs(node.left,s)
-            r=dfs(node.right,s)
-            
-            return l or r
-        
+            if not node.left and not node.right:
+                return s==targetSum
+            return dfs(node.left,s) or dfs(node.right,s)
+
         return dfs(root,0)
 
         
