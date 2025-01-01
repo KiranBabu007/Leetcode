@@ -9,6 +9,5 @@ class Solution(object):
         for row in triangle[::-1]:
             for i,n in enumerate(row):
                 dp[i]=n+min(dp[i],dp[i+1])
-                print(dp[i])
         return dp[0]
         
