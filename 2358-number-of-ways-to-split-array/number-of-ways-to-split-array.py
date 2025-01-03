@@ -5,15 +5,14 @@ class Solution(object):
         :rtype: int
         """
         c=0
-        n=len(nums)
-        l,r=sum(nums[:1]),sum(nums[1:])
-        for i in range(1,n):
-            print(l,r)
+        n=len(nums)-1
+        prefix=sum(nums)
+        l=0
+        for i in range(n):
+            l+=nums[i]
+            r=prefix-l
             if l>=r:
                 c+=1
-            l+=nums[i]
-            r-=nums[i]
-            
         return c
     
         
