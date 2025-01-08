@@ -23,6 +23,7 @@ class Solution(object):
             return True
             
         for i in range(numCourses):
-            if not dfs(i): return False
+            if not dfs(i): 
+                return False
         return True
         
