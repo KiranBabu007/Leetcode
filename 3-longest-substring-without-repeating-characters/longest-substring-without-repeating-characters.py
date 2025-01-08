@@ -1,18 +1,22 @@
 class Solution(object):
     def lengthOfLongestSubstring(self, s):
-        l,ans=0,0
-        charSet=set()
+        """
+        :type s: str
+        :rtype: int
+        """
+        hashmap={}
+        n=len(s)
+        l=0
+        r=0
+        maxlen=0
 
-        for r in range(len(s)):
-            while(s[r] in charSet):
-                charSet.remove(s[l])
-                l+=1
-            charSet.add(s[r])
-            ans=max(ans,len(charSet))
-            print(charSet)
-        return ans
+        while r<n:
+            if s[r] in hashmap:
+                if hashmap[s[r]]>=l:
+                    l=hashmap[s[r]]+1
+            hashmap[s[r]]=r
+            maxlen=max(maxlen,r-l+1)
+            r+=1
+        return maxlen
 
-            
-
-        
         
