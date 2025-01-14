@@ -5,18 +5,13 @@ class Solution(object):
         :type s: List[int]
         :rtype: int
         """
-        g.sort(reverse=True)
-        s.sort(reverse=True)
-        i,j=0,0
+        g.sort()
+        s.sort()
         if not s or not g:
             return 0
-        while(i<len(g) and j<len(s)):
-            if g[i]<=s[j]:
-                j+=1
-                i+=1
-            else:
-                i+=1
-        return j
-
-
-        
+        l=r=0
+        while l<len(g) and r<len(s):
+            if g[l]<=s[r]:
+                l+=1
+            r+=1
+        return l
