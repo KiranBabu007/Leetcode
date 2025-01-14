@@ -17,7 +17,6 @@ class Solution(object):
             if c in tcount and window[c]==tcount[c]:
                 have+=1
             while have==need:
-
                 if r-l+1 < resLen:
                     resLen=r-l+1
                     res=[l,r]
