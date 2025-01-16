@@ -4,16 +4,14 @@ class Solution(object):
         :type n: int
         :rtype: int
         """
-        dp=[-1 for _ in range(n+1)]
-        print(dp)
-        def Climb(n):
-            if n<0:
-                return 0
-            if n==0:
-                return 1
-            if(dp[n]!=-1):
-                return dp[n]
-            dp[n]=Climb(n-1)+Climb(n-2)
-            return Climb(n-1)+Climb(n-2)
-        return Climb(n)
+        memo=[-1] *( n+1)
+        def climb(n):
+            if n<=2:
+                memo[n]=n
+                return n
+            if memo[n]==-1:
+                memo[n]=climb(n-1)+climb(n-2)
+            return memo[n]
+        return climb(n)
+
         
