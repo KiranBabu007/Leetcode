@@ -4,14 +4,21 @@ class Solution(object):
         :type n: int
         :rtype: bool
         """
-        s=set()
-
+        visited=set()
+        ans=n
         while(n!=1):
-            if n in s:
+            ans=0
+            for i in range(len(str(n))):
+                num=n%10
+                n=n/10
+                ans+=num**2
+            if ans in visited:
                 return False
-            s.add(n)
-            n=sum([int(i)**2 for i in str(n)])
-        else:
-            return True
+            else:
+                visited.add(ans)
+            n=ans
+
+        return True
+        
         
         
