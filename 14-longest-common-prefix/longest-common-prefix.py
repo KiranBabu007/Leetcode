@@ -4,15 +4,11 @@ class Solution(object):
         :type strs: List[str]
         :rtype: str
         """
-        ans=''
-        l=list(zip(*strs))
+        ans=""
 
-        for i in l:
-            if len(set(i))==1:
-                ans+=i[0]
-            else:
-                break
+        for i in range(len(strs[0])):
+            for s in strs:
+                if i==len(s) or s[i]!=strs[0][i]:
+                    return ans
+            ans+=strs[0][i]
         return ans
-
-
-        
