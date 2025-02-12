@@ -1,10 +1,15 @@
-class Solution:
-    def rob(self, nums: List[int]) -> int:
-        r1,r2=0,0
-        t=0
+class Solution(object):
+    def rob(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        
+        rob1,rob2=0,0
+
         for i in nums:
-            t=max(r1+i,r2)
-            r1=r2
-            r2=t
-        return r2
+            temp=max(i+rob1,rob2)
+            rob1=rob2
+            rob2=temp
+        return max(rob1,rob2)
         
