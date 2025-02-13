@@ -4,14 +4,16 @@ class Solution(object):
         :type nums: List[int]
         :rtype: List[int]
         """
+        temp=sorted(nums)
+        
+        hashmap={}
+        for i in range(len(nums)):
+            hashmap[temp[i]]=min(hashmap.get(temp[i],float('inf')),i)
         res=[]
         for i in nums:
-            c=0
-            for r in nums:
-                if r<i:
-                    c+=1
-            res.append(c)
+            res.append(hashmap[i])
         return res
+
                 
 
         
