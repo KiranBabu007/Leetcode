@@ -10,6 +10,6 @@ class Solution(object):
             t=n*curmin
             curmin=min(n*curmin,n*curmax,n)
             curmax=max(t,n*curmax,n)
-            print(curmin,curmax)
+            
             res=max(res,curmax)
         return res
