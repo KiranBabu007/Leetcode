@@ -5,7 +5,7 @@ class Solution(object):
         :rtype: int
         """
         curmin,curmax=1,1
-        res=max(nums)
+        res=float('-inf')
         for n in nums:
             t=n*curmin
             curmin=min(n*curmin,n*curmax,n)
