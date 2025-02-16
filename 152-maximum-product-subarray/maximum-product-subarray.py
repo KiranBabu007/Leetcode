@@ -4,7 +4,7 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
-        res=max(nums)
+        res=float('-inf')
         pre,suf=1,1
 
         for i in range(len(nums)):
