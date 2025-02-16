@@ -4,12 +4,15 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
-        curmin,curmax=1,1
-        res=float('-inf')
-        for n in nums:
-            t=n*curmin
-            curmin=min(n*curmin,n*curmax,n)
-            curmax=max(t,n*curmax,n)
-            
-            res=max(res,curmax)
+        res=max(nums)
+        pre,suf=1,1
+
+        for i in range(len(nums)):
+            if not pre:
+                pre=1
+            if not suf:
+                suf=1
+            pre*=nums[i]
+            suf*=nums[len(nums)-i-1]
+            res=max(res,pre,suf)
         return res
