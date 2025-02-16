@@ -1,18 +1,15 @@
-class Solution:
-    def maxProduct(self, nums: List[int]) -> int:
-        pre,suf=1,1
-        n=len(nums)
-        ans=nums[0]
-        for i in range(n):
-            if pre==0:
-                pre=1
-            if suf==0:
-                suf=1
-
-            pre*=nums[i]
-            suf*=nums[n-i-1]
-
-            ans=max(ans,max(pre,suf))
-        return ans
-
-
+class Solution(object):
+    def maxProduct(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        curmin,curmax=1,1
+        res=max(nums)
+        for n in nums:
+            t=n*curmin
+            curmin=min(n*curmin,n*curmax,n)
+            curmax=max(t,n*curmax,n)
+            print(curmin,curmax)
+            res=max(res,curmax)
+        return res
