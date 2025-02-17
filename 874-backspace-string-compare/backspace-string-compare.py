@@ -5,19 +5,21 @@ class Solution(object):
         :type t: str
         :rtype: bool
         """
-        s1=""
+        l1=[]
         for i in s:
             if i=="#":
-                s1=s1[:-1]
+                if l1:
+                    l1.pop()
                 continue
-            s1+=i
-        s2=""
+            l1.append(i)
+        l2=[]
         for i in t:
             if i=="#":
-                s2=s2[:-1]
+                if l2:
+                    l2.pop()
                 continue
-            s2+=i
+            l2.append(i)
         
-        return s1==s2
+        return l1==l2
         
         
