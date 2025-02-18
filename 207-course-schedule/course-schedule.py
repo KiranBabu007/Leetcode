@@ -5,25 +5,29 @@ class Solution(object):
         :type prerequisites: List[List[int]]
         :rtype: bool
         """
-        adjList={i:[] for i in range(numCourses)}
-        for a,b in prerequisites:
-            adjList[b].append(a)
-        Visited=set()
+        adjList=defaultdict(list)
+
+        for start,end in prerequisites:
+            adjList[start].append(end)
+
+        visited=set()
         
-        def dfs(node):
-            if node in Visited:
+        def takeCourse(i):
+            if i in visited:
                 return False
-            Visited.add(node)
-            
-            for i in adjList[node]:
-                if(not dfs(i)): return False
-   
-            adjList[node]=[]
-            Visited.remove(node)
+            if not adjList[i]:
+                return True
+            visited.add(i)
+            for neighbours in adjList[i]:
+                if not takeCourse(neighbours):
+                    return False
+            adjList[i]=[]
+            visited.remove(i)
             return True
             
+            
         for i in range(numCourses):
-            if not dfs(i): 
+            if not takeCourse(i):
                 return False
         return True
-        
+
