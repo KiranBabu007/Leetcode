@@ -27,7 +27,7 @@ class Solution(object):
             for neighbor in adjList[i]:
                 if not takeCourse(neighbor):
                     return False
-            adjList[i] = []  # Mark prerequisites as completed
+            adjList[i] = []  
             visited.remove(i)
 
             if i not in order:
@@ -39,4 +39,4 @@ class Solution(object):
             if not takeCourse(i):
                 return []
 
-        return order  # Reverse to get correct topological order
+        return order  
