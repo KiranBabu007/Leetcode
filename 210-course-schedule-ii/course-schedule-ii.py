@@ -1,3 +1,5 @@
+from collections import defaultdict
+
 class Solution(object):
     def findOrder(self, numCourses, prerequisites):
         """
@@ -5,38 +7,36 @@ class Solution(object):
         :type prerequisites: List[List[int]]
         :rtype: List[int]
         """
-        if not prerequisites:
-            return [i for i in range(numCourses)]
+        adjList = defaultdict(list)
 
-        pre={i:[] for i in range(numCourses)}
-        for start,end in prerequisites:
-            pre[start].append(end)
+        for start, end in prerequisites:
+            adjList[start].append(end)
 
-        visited=set()
-        cycle=set()
-        ans=[]
-        def dfs(node):
-            if node in visited:
-                return True
-            if node in cycle:
+        visited = set()
+        order = []
+
+        def takeCourse(i):
+            if i in visited:
                 return False
-            
-            cycle.add(node)
+            if not adjList[i]:  # No prerequisites left
+                if i not in order:
+                    order.append(i)
+                return True
 
-            for n in pre[node]:
-                if not dfs(n):
+            visited.add(i)
+            for neighbor in adjList[i]:
+                if not takeCourse(neighbor):
                     return False
-            cycle.remove(node)
-            visited.add(node)
-            ans.append(node)
+            adjList[i] = []  # Mark prerequisites as completed
+            visited.remove(i)
+
+            if i not in order:
+                order.append(i)
+
             return True
- 
+
         for i in range(numCourses):
-            if not dfs(i):
+            if not takeCourse(i):
                 return []
-        return ans
 
-
-
-
-        
+        return order  # Reverse to get correct topological order
