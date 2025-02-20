@@ -10,6 +10,7 @@ class Solution(object):
 
         def find(node):
             while node != p[node]:
+                p[node]=p[p[node]]
                 node=p[node]
             return node
 
