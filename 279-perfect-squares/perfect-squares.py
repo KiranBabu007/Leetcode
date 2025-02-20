@@ -12,19 +12,20 @@ class Solution(object):
         for i in range(1,num+1):
             p.append(i*i)
         
-        def findComb(t):
-            if t in memo:
-                return memo[t]
-            if t<0:
-                return float('inf')
-            if t==0:
-                return 0
-            ans=float('inf')
-            for prime in p:
-                ans=min(ans,1+findComb(t-prime,))
-            memo[t]=ans
-            return memo[t]
-        return findComb(n)
+        dp=[float('inf')] * (n+1)
+
+        for i in range(1,n+1):
+            if i in p:
+                dp[i]=1
+                continue
+            for square in p:
+                if i>square:
+                    dp[i]=min(dp[i],1+dp[i-square])
+        return dp[n]
+
+
+
+
 
 
         
