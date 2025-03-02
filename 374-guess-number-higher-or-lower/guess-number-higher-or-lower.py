@@ -20,7 +20,6 @@ class Solution(object):
                 r=mid-1
             else:
                 return mid
-            print(mid)
 
             
         
