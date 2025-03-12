@@ -16,10 +16,8 @@ class Solution(object):
                     q.pop()
                 else:
                     profit+=(q.pop()-q.popleft())
-                    while q:
-                        q.pop()
-                q.append(i)
-            
+                    q=deque()
+                q.append(i)  
         if len(q)>1:
             profit+=(q.pop()-q.popleft())
         return profit
