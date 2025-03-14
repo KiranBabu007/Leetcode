@@ -12,17 +12,17 @@ class Solution(object):
         """
         
         curr=head
-        q=deque()
+        arr=[]
         dummy=head
         ptr=head
         while(curr):
             if curr.val>=x:
-                q.append(curr.val)
+                arr.append(curr.val)
             else:
                 ptr.val=curr.val
                 ptr=ptr.next
             curr=curr.next
-        for i in q:
+        for i in arr:
             ptr.val=i
             ptr=ptr.next
         return dummy
